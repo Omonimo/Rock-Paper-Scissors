@@ -8,9 +8,32 @@
         <h1>Rock, Paper, Scissors</h1>
     </header>
     <body>
+      <div id="match">
+        <h2>Current game</h2>
+        <h3>Game: <span id="current-game"></span></h3>
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Computer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="score"><span id="player-choice"></span></td>
+              <td class="score"><span id="computer-choice"></span></td>
+            </tr>
+        </table>
+        <p>Result: <span id="result"></span></p>
+        <div id="game">
+          <button type="button" class="selection" id="rock">🪨</button>
+          <button type="button" class="selection" id="paper">✋</button>
+          <button type="button" class="selection" id="scissors">✂️</button>
+      </div>
+      </div>
         <div class="scoreboard">
             <h2>Scoreboard</h2>
-            <h3>Game: <span id="current-game"></span></h3>
+            
             <table>
                 <thead>
                   <tr>
@@ -25,10 +48,9 @@
                   </tr>
               </table>
         </div>
-        <div id="game">
-            <button type="button" class="selection" id="rock">🪨</button>
-            <button type="button" class="selection" id="paper">✋</button>
-            <button type="button" class="selection" id="scissors">✂️</button>
+        
+        <div>
+          <button type="reset" id="restart-game">🔄</button>
         </div>
     </body>
 </main>
