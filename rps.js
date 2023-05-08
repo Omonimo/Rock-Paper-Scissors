@@ -10,15 +10,19 @@
 let playerSelection;
 let computerSelection;
 
+let currentGame = 0;
+let playerScore = 0;
+let computerScore = 0;
+
 const weapons = document.querySelectorAll(".selection")
 
 //get user choice
 weapons.forEach(weapon => {
     weapon.addEventListener('click', () => {
 
-        let currentGame = 0;
+        /* let currentGame = 0;
         let playerScore = 0;
-        let computerScore = 0;
+        let computerScore = 0; */
 
         playerSelection = weapon.id;
         computerSelection = getComputerChoice();
@@ -57,3 +61,16 @@ weapons.forEach(weapon => {
     })
 });
 
+const restartButton = document.getElementById("restart-game").addEventListener("click", resetGame);
+function resetGame(e) {
+    currentGame = 0;
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById("player-choice").textContent = "";
+    document.getElementById("computer-choice").textContent = "";
+    document.getElementById("player-score").textContent = playerScore;
+    document.getElementById("computer-score").textContent = computerScore;
+    document.getElementById("current-game").textContent = currentGame;
+
+    console.log(e)
+}
