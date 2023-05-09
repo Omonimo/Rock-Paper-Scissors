@@ -29,20 +29,22 @@ weapons.forEach(weapon => {
         //
         if (computerScore === 5 || playerScore === 5){
             if(computerScore > playerScore){
-                result.innerText += "Computer wins";
+                resetGame();
+                winner.innerText = "Computer wins";
             }
             else if (playerScore > computerScore){
-                result.innerText += "You win!";
-            }
-            resetGame();
-        }
+                resetGame();
+                winner.innerText = "You win!";
+            };
+            
+        };
         //
 
         playerSelection = weapon.id;
         computerSelection = getComputerChoice();
 
         if (computerSelection == playerSelection){
-            result.append = "It's a tie";
+            result.innerText= "It's a tie";
             currentGame++;
         } //player is the winner
         else if(computerSelection=="rock" && playerSelection == "paper"){
@@ -64,7 +66,8 @@ weapons.forEach(weapon => {
             computerScore++;
             result.innerText =(`You lose ${computerSelection} beats ${playerSelection}`);
             currentGame++;
-        } 
+        }
+
 
         document.getElementById("player-choice").textContent = playerSelection;
         document.getElementById("computer-choice").textContent = computerSelection;
@@ -88,4 +91,5 @@ function resetGame() {
     document.getElementById("computer-score").textContent = computerScore;
     document.getElementById("current-game").textContent = currentGame;
     result.innerText = "Choose: Rock, Paper or Scissors";
+    winner.innerText = "";
 };
