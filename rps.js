@@ -6,6 +6,7 @@
     return computerChoice;
 
 }
+result.innerText = "Choose: Rock, Paper or Scissors";
 
 let playerSelection;
 let computerSelection;
@@ -17,12 +18,11 @@ let computerScore = 0;
 const weapons = document.querySelectorAll(".selection")
 
 //get user choice
+
+
+//
 weapons.forEach(weapon => {
     weapon.addEventListener('click', () => {
-
-        /* let currentGame = 0;
-        let playerScore = 0;
-        let computerScore = 0; */
 
         playerSelection = weapon.id;
         computerSelection = getComputerChoice();
@@ -50,7 +50,7 @@ weapons.forEach(weapon => {
             computerScore++;
             result.innerText =(`You lose ${computerSelection} beats ${playerSelection}`);
             currentGame++;
-        }
+        } 
 
         document.getElementById("player-choice").textContent = playerSelection;
         document.getElementById("computer-choice").textContent = computerSelection;
@@ -60,6 +60,8 @@ weapons.forEach(weapon => {
         
     })
 });
+
+
 
 const restartButton = document.getElementById("restart-game").addEventListener("click", resetGame);
 function resetGame(e) {
@@ -71,6 +73,7 @@ function resetGame(e) {
     document.getElementById("player-score").textContent = playerScore;
     document.getElementById("computer-score").textContent = computerScore;
     document.getElementById("current-game").textContent = currentGame;
+    result.innerText = "Choose: Rock, Paper or Scissors";
 
     console.log(e)
 }
