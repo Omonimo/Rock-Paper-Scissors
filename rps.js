@@ -27,17 +27,7 @@ weapons.forEach(weapon => {
     weapon.addEventListener('click', () => {
 
         //
-        if (computerScore === 5 || playerScore === 5){
-            if(computerScore > playerScore){
-                resetGame();
-                winner.innerText = "Computer wins";
-            }
-            else if (playerScore > computerScore){
-                resetGame();
-                winner.innerText = "You win!";
-            };
-            
-        };
+        
         //
 
         playerSelection = weapon.id;
@@ -74,6 +64,18 @@ weapons.forEach(weapon => {
         document.getElementById("player-score").textContent = playerScore;
         document.getElementById("computer-score").textContent = computerScore;
         document.getElementById("current-game").textContent = currentGame;
+
+        if (computerScore === 5 || playerScore === 5){
+            if(computerScore > playerScore){
+                resetGame();
+                winner.innerText = "Computer wins";
+            }
+            else if (playerScore > computerScore){
+                resetGame();
+                winner.innerText = "You win!";
+            };
+            
+        };
         
     })
 });
