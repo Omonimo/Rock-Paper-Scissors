@@ -21,14 +21,28 @@ const weapons = document.querySelectorAll(".selection")
 
 
 //
+
+
 weapons.forEach(weapon => {
     weapon.addEventListener('click', () => {
+
+        //
+        if (computerScore === 5 || playerScore === 5){
+            if(computerScore > playerScore){
+                result.innerText += "Computer wins";
+            }
+            else if (playerScore > computerScore){
+                result.innerText += "You win!";
+            }
+            resetGame();
+        }
+        //
 
         playerSelection = weapon.id;
         computerSelection = getComputerChoice();
 
         if (computerSelection == playerSelection){
-            result.innerText = "It's a tie";
+            result.append = "It's a tie";
             currentGame++;
         } //player is the winner
         else if(computerSelection=="rock" && playerSelection == "paper"){
@@ -64,7 +78,7 @@ weapons.forEach(weapon => {
 
 
 const restartButton = document.getElementById("restart-game").addEventListener("click", resetGame);
-function resetGame(e) {
+function resetGame() {
     currentGame = 0;
     playerScore = 0;
     computerScore = 0;
@@ -74,6 +88,4 @@ function resetGame(e) {
     document.getElementById("computer-score").textContent = computerScore;
     document.getElementById("current-game").textContent = currentGame;
     result.innerText = "Choose: Rock, Paper or Scissors";
-
-    console.log(e)
-}
+};
